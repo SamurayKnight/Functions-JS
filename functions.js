@@ -61,4 +61,16 @@ repeat("hola", 2);
 
 
 
+//Función que invierte el texto dado.
+const reverse = (string = "") => (!string)
+? console.warn('Valor invalido, introduce un texto.')
+: console.info(string.split('').reverse().join(''));
+
+
+reverse();
+reverse("sevér lA");
+
+
+
+
 //
