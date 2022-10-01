@@ -108,3 +108,20 @@ const repeatWord = (text = "", string = "") => {
 
 repeatWord("lorem impsu dolor lorem", "lorem");
 
+
+
+
+//Función que evalua si un string o frase es palíndromo.
+const palindrome = (string = "") => {
+    if (!string) return console.warn('Valor invalido, ingrese una palabra o frase.');
+
+    string = string.toLowerCase();
+    let reves = string.split("").reverse().join("");
+
+    return (string === reves) 
+    ? console.info(`El valor ingresado "${string}" es palindromo. ${reves}`)
+    : console.info(`El valor ingresado "${string}" no es palindromo. ${reves}`)
+}
+palindrome()
+palindrome("mujer")
+palindrome("otto")
