@@ -1,3 +1,12 @@
+//Función que te devuelve un tag HTML seleccionado 
+const $ = selector => document.querySelector(selector);
+
+
+const anyName = $('.xname');
+
+
+
+
 //Función que cuenta el número de caracteres de un string.
 const countString = (string = "") => (!string) 
 ? console.warn(`El dato${string} no es valido.`) 
@@ -25,9 +34,10 @@ cutString("Hello World",5);
 //Función que devuelve un array con separación.
 const toArray = (string = "", separator = undefined) => (!string) 
 ? console.warn(`El valor${string} no es valido.`)
-: (separator === undefined) 
-? console.warn(`El valor ${separator} no es valido.`)
-: console.info(string.split(separator));
+: 
+    (separator === undefined) 
+    ? console.warn(`El valor ${separator} no es valido.`)
+    : console.info(string.split(separator));
 
 
 toArray();
@@ -73,4 +83,19 @@ reverse("sevér lA");
 
 
 
-//
+//Función que da cuantas veces se repite x palbra en un texto dado.
+const repeatWord = (text = "", string = "") => {
+    if (!text) {
+        console.warn('Debe de ingresar un texto')
+    }
+    
+    if (!string) {
+        console.warn('Debe de ingresar una palabra a buscar')
+    }
+
+    let y = text.split(' ')
+    console.log(y)
+    return console.info(y.find(string));
+}
+
+repeatWord("lorem impsu dolor lorem", "lorem")
