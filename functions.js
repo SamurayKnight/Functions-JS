@@ -1,8 +1,8 @@
-//Función que te devuelve un tag HTML seleccionado 
+//Función que te devuelve un tag HTML seleccionado.
 const $ = selector => document.querySelector(selector);
 
 
-const anyName = $('.xname');
+const xName = $('.xname');
 
 
 
@@ -93,9 +93,18 @@ const repeatWord = (text = "", string = "") => {
         console.warn('Debe de ingresar una palabra a buscar')
     }
 
-    let y = text.split(' ')
-    console.log(y)
-    return console.info(y.find(string));
+
+    let i = 0, count = 0;
+
+    while (i !== -1) {
+        i = text.indexOf(string, i);
+        if (i !== -1) {
+            i ++;
+            count ++;
+        }
+    }
+    return console.info(`La palabra "${string}" se repite ${count} veces.`)
 }
 
-repeatWord("lorem impsu dolor lorem", "lorem")
+repeatWord("lorem impsu dolor lorem", "lorem");
+
