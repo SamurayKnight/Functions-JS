@@ -103,7 +103,7 @@ const repeatWord = (text = "", string = "") => {
             count ++;
         }
     }
-    return console.info(`La palabra "${string}" se repite ${count} veces.`)
+    return console.info(`La palabra "${string}" se repite ${count} veces.`);
 }
 
 repeatWord("lorem impsu dolor lorem", "lorem");
@@ -120,8 +120,28 @@ const palindrome = (string = "") => {
 
     return (string === reves) 
     ? console.info(`El valor ingresado "${string}" es palindromo. ${reves}`)
-    : console.info(`El valor ingresado "${string}" no es palindromo. ${reves}`)
-}
+    : console.info(`El valor ingresado "${string}" no es palindromo. ${reves}`);
+};
+
+
 palindrome()
 palindrome("mujer")
 palindrome("otto")
+
+
+
+
+//Función que elimina cierto patrón de caractéres en un texto.
+const deleteCharacter = (texto = "", string = "") => (!texto)
+? console.warn('Valor invalido, debe ingresar un texto.') 
+: (!string) 
+    ? console.warn('Valor invalido, debe ingresar un caracter.')
+    : console.info(texto.replace(new RegExp(string, "ig"), ''));
+
+
+deleteCharacter();
+deleteCharacter("lorem imsum dolor", "o");
+
+
+
+
