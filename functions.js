@@ -145,3 +145,14 @@ deleteCharacter("lorem imsum dolor", "o");
 
 
 
+//Función que devuelve un número entre los parámetros dados.
+const getNumbers = (x = "", y = "") => (!x)
+? console.warn('Valor invalido, debe ingresar un número.')
+: (!y)
+    ? console.warn('Valor invalido, debe ingresar dos valores.') 
+    : console.info(Math.round(Math.random() * (y - x) + x));
+ 
+
+    getNumbers();
+    getNumbers(1);
+    getNumbers(5, 13);
