@@ -21,7 +21,7 @@ countString("STRING");
 
 //Función que devuelve la última letra de un string dado.
 const lastLetter = (string = "") => {
-    let letter = string.length  - 1 ;
+    let letter = string.length - 1 ;
     return (!string) 
     ? console.warn('Valor invalido, ingrese un string')
     : console.info(string[letter])
@@ -97,14 +97,14 @@ reverse("sevér lA");
 
 
 
-//Función que da cuantas veces se repite x palbra en un texto dado.
+//Función que da cuantas veces se repite x palabra en un texto dado.
 const repeatWord = (text = "", string = "") => {
     if (!text) {
-        console.warn('Debe de ingresar un texto')
+        console.warn('Debe de ingresar un texto.')
     }
     
     if (!string) {
-        console.warn('Debe de ingresar una palabra a buscar')
+        console.warn('Debe de ingresar una palabra a buscar.')
     }
 
 
@@ -194,3 +194,27 @@ const getNumbers = (x = "", y = "") => (!x)
 
 
 
+
+//Función que verifica si un string llena correctamente otro.
+const check = (space = "" , word = "") => {
+    if (!word) {
+        return console.warn('Valor invalido, ingrese un string.')
+    }
+
+    if (word.length !== space.length) {
+        return console.info(`Las espacios de "${space}" no coinciden en la palabra "${word}".`)
+    }
+
+    for (let i = 0; i < space.length; i++) {
+        if (space[i] !== '-' && space[i] !== word[i]) {
+            return console.info(`Las carácteres de "${space}" no coinciden en la palabra "${word}".`) 
+        }
+    }
+
+    return console.info(`Las letras "${space}" coincide en la palabra "${word}".`);
+};
+
+check();
+check('pal-','palabra');
+check('pa-a', 'pato');
+check('p-l--r-', 'palabra');
