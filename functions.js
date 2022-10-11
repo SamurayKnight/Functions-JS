@@ -19,6 +19,20 @@ countString("STRING");
 
 
 
+//Función que devuelve la última letra de un string dado.
+const lastLetter = (string = "") => {
+    let letter = string.length  - 1 ;
+    return (!string) 
+    ? console.warn('Valor invalido, ingrese un string')
+    : console.info(string[letter])
+};
+
+
+lastLetter();
+lastLetter("worh");
+
+
+
 //Función que devuelve un string dado recortado n veces.
 const cutString = (string ="", number = NaN) => (!string)
 ? console.warn(`El valor${string} no es valido.`)
