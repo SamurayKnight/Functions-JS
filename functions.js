@@ -133,7 +133,8 @@ palindrome("otto");
 
 //Función que devuelve true si un número es capicúa y false si no.
 const capicua = (a = "") =>  {
-    if (!a) return console.warn('Valor invalido, ingrese un número.');
+    if (!a) return console.warn('Valor vacio, ingrese un número.');
+    if (typeof a !== "number") return console.error("Debe ingresar un número.")
 
     let toString = a.toString()
     let reves = toString.split("").reverse().join("");
@@ -144,6 +145,7 @@ const capicua = (a = "") =>  {
 };
 
     capicua();
+    capicua("44")
     capicua(123);
     capicua(404);
 
