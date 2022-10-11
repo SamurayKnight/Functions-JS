@@ -100,11 +100,11 @@ reverse("sevér lA");
 //Función que da cuantas veces se repite x palabra en un texto dado.
 const repeatWord = (text = "", string = "") => {
     if (!text) {
-        console.warn('Debe de ingresar un texto.')
+        return console.warn('Debe de ingresar un texto.')
     }
     
     if (!string) {
-        console.warn('Debe de ingresar una palabra a buscar.')
+        return console.warn('Debe de ingresar una palabra a buscar.')
     }
 
 
@@ -120,7 +120,30 @@ const repeatWord = (text = "", string = "") => {
     return console.info(`La palabra "${string}" se repite ${count} veces.`);
 }
 
+repeatWord()
+repeatWord("lorem impsum")
 repeatWord("lorem impsu dolor lorem", "lorem");
+
+
+
+
+
+//Función que recibe un array y devuelve el elemento más largo.
+const findLongestWord = (array = "") => {
+    if (typeof array !== 'object') return console.error("Debe ingresar un array.")
+    
+    let word = '';
+    for (let find of array) {
+        if (find.length > word.length) {
+            word = find
+        }
+    }
+    return console.info(`La palabra más larga del array es: "${word}"`)
+}
+
+
+findLongestWord();
+findLongestWord(["los", "lazy", "array", "ochenta"]);
 
 
 
@@ -211,7 +234,7 @@ const check = (space = "" , word = "") => {
         }
     }
 
-    return console.info(`Las letras "${space}" coincide en la palabra "${word}".`);
+    return console.info(`Las letras y carácteres de la palabra "${space}" coincide en la palabra "${word}".`);
 };
 
 check();
