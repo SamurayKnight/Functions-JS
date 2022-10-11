@@ -124,13 +124,32 @@ const palindrome = (string = "") => {
 };
 
 
-palindrome()
-palindrome("mujer")
-palindrome("otto")
+palindrome();
+palindrome("mujer");
+palindrome("otto");
 
 
 
 
+//Función que devuelve true si un número es capicúa y false si no.
+const capicua = (a = "") =>  {
+    if (!a) return console.warn('Valor invalido, ingrese un número.');
+
+    let toString = a.toString()
+    let reves = toString.split("").reverse().join("");
+
+    return (toString === reves) 
+    ? console.info(true)
+    : console.info(false);
+};
+
+    capicua();
+    capicua(123);
+    capicua(404);
+
+
+
+    
 //Función que elimina cierto patrón de caractéres en un texto.
 const deleteCharacter = (texto = "", string = "") => (!texto)
 ? console.warn('Valor invalido, debe ingresar un texto.') 
@@ -149,10 +168,13 @@ deleteCharacter("lorem imsum dolor", "o");
 const getNumbers = (x = "", y = "") => (!x)
 ? console.warn('Valor invalido, debe ingresar un número.')
 : (!y)
-    ? console.warn('Valor invalido, debe ingresar dos valores.') 
+    ? console.warn('Valor invalido, debe ingresar dos números.') 
     : console.info(Math.round(Math.random() * (y - x) + x));
  
 
     getNumbers();
     getNumbers(1);
     getNumbers(5, 13);
+
+
+
