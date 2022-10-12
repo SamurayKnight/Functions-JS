@@ -56,11 +56,36 @@ const mapString = (string = "") => {
     }
 }
 
-mapString("hello")
-/*
-let stringMap = mapString("hello");
 
-*/
+mapString();
+mapString("hello");
+mapString("churrumino")
+
+
+
+
+//Función que toma un string y el objeto, los compara y devúelve un boolean.
+const compareLetters = (string = "", object = "") => {
+    if (!string) {
+        console.warn('Valor invalido, ingrese un string.')
+    }
+
+    if (!object) {
+        console.warn('Valor invalido, ingrese un object.')
+}
+
+    for (let i of string) 
+    if (object[i]) {
+    } else {
+        return console.info(false)
+    }
+    return console.info(true)
+}
+
+
+compareLetters();
+compareLetters("hello", mapString("hello"));
+compareLetters("adabra", mapString("hello"))
 
 
 
@@ -158,7 +183,6 @@ repeatWord("lorem impsu dolor lorem", "lorem");
 
 
 
-
 //Función que recibe un array y devuelve el elemento más largo.
 const findLongestWord = (array = "") => {
     if (typeof array !== 'object') return console.error("Debe ingresar un array.")
@@ -175,6 +199,7 @@ const findLongestWord = (array = "") => {
 
 findLongestWord();
 findLongestWord(["los", "lazy", "array", "ochenta"]);
+
 
 
 
@@ -272,3 +297,9 @@ check();
 check('pal-','palabra');
 check('pa-a', 'pato');
 check('p-l--r-', 'palabra');
+
+
+
+
+
+//
