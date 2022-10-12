@@ -7,6 +7,21 @@ const xName = $('.xname');
 
 
 
+//Función que devuelve la última letra de un string dado.
+const lastLetter = (string = "") => {
+    let letter = string.length - 1 ;
+    return (!string) 
+    ? console.warn('Valor invalido, ingrese un string')
+    : console.info(string[letter])
+};
+
+
+lastLetter();
+lastLetter("worh");
+
+
+
+
 //Función que cuenta el número de caracteres de un string.
 const countString = (string = "") => (!string) 
 ? console.warn(`El dato${string} no es valido.`) 
@@ -19,17 +34,33 @@ countString("STRING");
 
 
 
-//Función que devuelve la última letra de un string dado.
-const lastLetter = (string = "") => {
-    let letter = string.length - 1 ;
-    return (!string) 
-    ? console.warn('Valor invalido, ingrese un string')
-    : console.info(string[letter])
-};
+//Función que hace la cartografía de un string en forma de objeto.
+const mapString = (string = "") => {
+    if (!string) {
+        console.warn('Debe ingresar un string.')
+    }
 
+    let obj = {};
 
-lastLetter();
-lastLetter("worh");
+    for (let i = 0; i < string.length; i++) {
+        let consecutive = string[i];
+
+        if (obj[consecutive]) {
+            obj[consecutive].push(i)
+        } else {
+            obj[consecutive] = [i]
+        }
+    }
+        for (let letter in obj) {
+            console.info(letter + ':' +  obj[letter])
+    }
+}
+
+mapString("hello")
+/*
+let stringMap = mapString("hello");
+
+*/
 
 
 
