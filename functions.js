@@ -347,10 +347,10 @@ const primeNumber = (number = undefined) => {
         return console.error('Valor invalido, debe ingresar un número.')
 
     if (number === 0) 
-        return console.error('Valor invalido, No se puede sacar factorial de 0.')
+        return console.error('Valor invalido, 0 no puede ser primo.')
 
     if (number === 1) 
-        return console.error('Valor invalido, No se puede sacar factorial de 0.')
+        return console.error('Valor invalido 1 no  es primo.')
 
      if (Math.sign(number) === -1) 
         return console.error('Valor invalido, el número no se puede ser negativo.')
@@ -374,4 +374,22 @@ primeNumber(12);
 
 
 
+//Función que determina si un número es par o impar.
+const parImpar = (number = undefined) => {
+    if (number === undefined) 
+        return console.error('Valor invalido, ingrese un número.')
 
+    if (number === 0) 
+        return console.error('Valor invalido, 0 no es par/impar.')
+
+    let numero = 2;
+    if ((number % numero) === 0) {
+        return console.info(`Tu número ${number} es primo.`)
+    } else {
+        return console.info(`Tu número ${number} no es primo.`)
+    }
+};
+
+
+parImpar(1);
+parImpar(123138);
