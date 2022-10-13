@@ -325,7 +325,7 @@ const factorial = (number = undefined) => {
         fact *=  i;
     }; 
 
-    return console.info(`El factorial de ${number} es:${fact}.`)
+    return console.info(`El factorial de ${number} es: ${fact}`)
 };
 
 
@@ -400,19 +400,20 @@ parImpar(123138);
 //Función que convierte grados Celcius a Fahrenheit y viceversa.
 const convert = (grados = undefined, unidad = "") => {
     if ((unidad !== "F" && unidad !== "C") || (!unidad || !grados)) {
-        console.error('Valor invalido, debe ingresar un valor númerico y junto con una "C" o "F" para especificar la unidad.')
+        return console.error('Valor invalido, debe ingresar el valor númerico a convertir junto con una "C" o "F" para especificar la unidad.')
     }
+
 
     let convertCToF = Math.round((((grados * 9)/5) + 32));
     let convertFToC = Math.round((grados - 32) * 5/9);
+
     if (unidad === "F") {
         return console.info(`${grados} grados Fahrenheit equivale a ${convertFToC} Celcius.`)
-
-    }
+    };
 
     if (unidad === "C") {
         return console.info(`${grados} grados Celcius equivale a ${convertCToF} Fahrenheit.`)
-    }
+    };
 }
 
 convert();
@@ -420,3 +421,32 @@ convert(2);
 convert(2, "a");
 convert(45,"F");
 convert(45,"C");
+
+
+
+
+//Función que transforma un número X decimal a binario y viceversa. 
+const convert2 = (number = undefined, base = undefined) => {
+    if (number === undefined) 
+        return console.error('Debe ingresar un número.')
+
+    if (typeof number !== "number") 
+        return console.error('Valor invalido, ingrese un número.')
+
+    if (base === undefined) 
+        return console.error('Debe ingresar una base.')
+
+    if (typeof number !== "number") 
+        return console.error('Base invalida, ingrese un número.')
+
+    if (base === 2) {
+        return console.info(`${number} base ${base} = ${parseInt(number, base)} base 10.`)
+    } else if (base === 10) {
+        return console.info(`${number} base ${base} = ${(numbertoString(2), base)} base 2.`)
+    }
+};
+
+convert2();
+convert2(1000, 2);
+convert2(1001, 2);
+convert2(114, 10);
