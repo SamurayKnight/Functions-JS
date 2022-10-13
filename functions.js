@@ -305,6 +305,7 @@ check('p-l--r-', 'palabra');
 
 //Función recursiva que te da el factorial de un número n.
 const factorial = (number = undefined) => {
+    //Casos de números invalidos.
     if (number === undefined) 
         return console.error('Valor invalido, ingrese un número.')
 
@@ -317,17 +318,60 @@ const factorial = (number = undefined) => {
     if (Math.sign(number) === -1) 
         return console.error('Valor invalido, el número no se puede ser negativo.')
 
+
+    //Operación matemática.
     let fact = 1;
     for (let i = number;  i > 1; i--) {
         fact *=  i;
-    }
+    }; 
+
     return console.info(`El factorial de ${number} es:${fact}.`)
 };
 
 
+factorial();
+factorial("");
+factorial(0);
+factorial(-1);
+factorial(8);
 
-factorial()
-factorial("")
-factorial(0)
-factorial(-1)
-factorial(8)
+
+
+
+//Función que te devuelve un boolean si un número es primo o no.
+const primeNumber = (number = undefined) => {
+    if (number === undefined) 
+        return console.error('Valor invalido, ingrese un número.')
+
+    if (typeof number !== "number") 
+        return console.error('Valor invalido, debe ingresar un número.')
+
+    if (number === 0) 
+        return console.error('Valor invalido, No se puede sacar factorial de 0.')
+
+    if (number === 1) 
+        return console.error('Valor invalido, No se puede sacar factorial de 0.')
+
+     if (Math.sign(number) === -1) 
+        return console.error('Valor invalido, el número no se puede ser negativo.')
+
+    let boolean = false;
+    for(let i = 2; number > i; i++){
+        if ((number % i) === 0) {
+            boolean = true;
+            break;
+        } 
+    }
+    return (boolean)
+        ? console.info(false)
+        : console.info(true)
+}
+
+
+primeNumber(11);
+primeNumber(12);
+
+
+
+
+
