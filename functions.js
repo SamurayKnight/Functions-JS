@@ -393,3 +393,30 @@ const parImpar = (number = undefined) => {
 
 parImpar(1);
 parImpar(123138);
+
+
+
+
+//Función que convierte grados Celcius a Fahrenheit y viceversa.
+const convert = (grados = undefined, unidad = "") => {
+    if ((unidad !== "F" && unidad !== "C") || (!unidad || !grados)) {
+        console.error('Valor invalido, debe ingresar un valor númerico y junto con una "C" o "F" para especificar la unidad.')
+    }
+
+    let convertCToF = Math.round((((grados * 9)/5) + 32));
+    let convertFToC = Math.round((grados - 32) * 5/9);
+    if (unidad === "F") {
+        return console.info(`${grados} grados Fahrenheit equivale a ${convertFToC} Celcius.`)
+
+    }
+
+    if (unidad === "C") {
+        return console.info(`${grados} grados Celcius equivale a ${convertCToF} Fahrenheit.`)
+    }
+}
+
+convert();
+convert(2);
+convert(2, "a");
+convert(45,"F");
+convert(45,"C");
