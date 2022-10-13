@@ -90,9 +90,11 @@ compareLetters("adabra", mapString("hello"))
 
 
 //Función que devuelve un string dado recortado n veces.
-const cutString = (string ="", number = NaN) => (!string)
-? console.warn(`El valor${string} no es valido.`)
-: console.info(string.slice(0, number));
+const cutString = (string ="", number = Number) => (!string)
+? console.warn(`El valor no es valido, ingrese un string y un número.`)
+    : (!number) 
+    ? console.warn(`El valor no es valido. ingrese un número`)
+    : console.info(string.slice(0, number));
 
 
 cutString();
@@ -301,5 +303,31 @@ check('p-l--r-', 'palabra');
 
 
 
+//Función recursiva que te da el factorial de un número n.
+const factorial = (number = undefined) => {
+    if (number === undefined) 
+        return console.error('Valor invalido, ingrese un número.')
 
-//
+    if (typeof number !== "number") {
+        return console.error('Valor invalido, debe ingresar un número.')
+    }
+    if (number === 0) 
+        return console.error('Valor invalido, No se puede sacar factorial de 0.')
+    
+    if (Math.sign(number) === -1) 
+        return console.error('Valor invalido, el número no se puede ser negativo.')
+
+    let fact = 1;
+    for (let i = number;  i > 1; i--) {
+        fact *=  i;
+    }
+    return console.info(`El factorial de ${number} es:${fact}.`)
+};
+
+
+
+factorial()
+factorial("")
+factorial(0)
+factorial(-1)
+factorial(8)
