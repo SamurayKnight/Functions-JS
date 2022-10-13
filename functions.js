@@ -490,3 +490,31 @@ const time = () => {
 }
 
 setInterval(time, 1000);
+
+
+
+
+//Función que te devuelve cuantos años han pasado desde la fecha ingresada.
+const getDate = (date = undefined) => {
+    if (date === undefined) return console.warn('Debe ingresar una fecha a evaluar.')
+
+    //instanceof hace una comparación más espeifica, sirve para validaciones más complejas.
+    if (!(date instanceof Date)) return console.error('No ingresaste una fecha vadida.')
+
+    let operation = new Date().getTime() - date.getTime(),
+        yearsToSec = 1000 * 60 * 60 * 24 * 365
+        total = Math.floor(operation/yearsToSec);
+
+    return (Math.sign(operation) === -1) 
+            ? console.info(`Faltan ${Math.abs(total)} años para el ${date.getFullYear()}.`)
+            : (Math.sign(operation) === 1) 
+                ? console.info(`Han pasado ${Math.abs(total)} años desde ${date.getFullYear()}.`)
+                : console.info(`Estamos en el año actual. ${date.getFullYear()}`)
+};
+
+
+getDate();
+getDate("");
+getDate(new Date());
+getDate(new Date(1997,7,6));
+getDate(new Date(2050,7,6));
