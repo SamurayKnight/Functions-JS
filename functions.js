@@ -442,7 +442,7 @@ const convert2 = (number = undefined, base = undefined) => {
     if (base === 2) {
         return console.info(`${number} base ${base} = ${parseInt(number, base)} base 10.`)
     } else if (base === 10) {
-        return console.info(`${number} base ${base} = ${(number.toString(2), base)} base 2.`)
+        return console.info(`${number} base ${base} = ${(number.toString(2))} base 2.`)
     }
 };
 
@@ -475,3 +475,18 @@ discount();
 discount(200, "q");
 discount("q", 12);
 discount(800, 20);
+
+
+
+
+//Función que imprime la hora actual.
+const time = () => {
+    let date = new Date();
+    let hours = date.getHours();
+    let min = date.getMinutes();
+    let seconds = date.getSeconds();
+
+    document.body.innerHTML = hours+":"+min+":"+seconds;
+}
+
+setInterval(time, 1000);
