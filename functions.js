@@ -442,7 +442,7 @@ const convert2 = (number = undefined, base = undefined) => {
     if (base === 2) {
         return console.info(`${number} base ${base} = ${parseInt(number, base)} base 10.`)
     } else if (base === 10) {
-        return console.info(`${number} base ${base} = ${(numbertoString(2), base)} base 2.`)
+        return console.info(`${number} base ${base} = ${(number.toString(2), base)} base 2.`)
     }
 };
 
@@ -450,3 +450,28 @@ convert2();
 convert2(1000, 2);
 convert2(1001, 2);
 convert2(114, 10);
+
+
+
+
+//Función para hacer X descuento en Y cantidad.
+const discount = (precio = undefined, descuento = undefined) => {
+    
+    if (precio === undefined && descuento === undefined) console.error('Valor vacio. Debe ingresar una cantidad y un descuento.')
+    
+    if (precio === undefined) console.warn('Debe ingresar una cantidad para aplicar un descuento.')
+
+    if (descuento === undefined)  console.warn('Debe ingresar un descuento para ser aplicado.')
+
+
+    let discount = (precio * descuento) / 100;
+    if (typeof precio === "number" && typeof descuento === "number") {
+        return console.info(`El ${descuento}% de $${precio} es: $${discount}.`);
+    }
+};
+
+
+discount();
+discount(200, "q");
+discount("q", 12);
+discount(800, 20);
