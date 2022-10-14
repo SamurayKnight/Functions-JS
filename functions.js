@@ -64,7 +64,7 @@ mapString("churrumino")
 
 
 
-//Función que toma un string y el objeto, los compara y devúelve un boolean.
+//Función que toma un string y el objeto creado anteriormente, los compara y devúelve un boolean.
 const compareLetters = (string = "", object = "") => {
     if (!string) {
         console.warn('Valor invalido, ingrese un string.')
@@ -85,7 +85,40 @@ const compareLetters = (string = "", object = "") => {
 
 compareLetters();
 compareLetters("hello", mapString("hello"));
-compareLetters("adabra", mapString("hello"))
+compareLetters("adabra", mapString("hello"));
+
+
+
+
+//Función que cuenta las vocales y consonantes de un strng dado.
+const countVandC = (string = "") => { 
+    if (string === "") return console.warn('Valor vacio debe ingresar una string.');
+    
+    if (typeof string !== "string") return console.error('Valor invalido, debe ingresar un string.');
+  
+    let c1 = 0;
+    let v1 = 0;
+    //Podemos añadir más valores.
+    let vocal = ['a','e','i','o','u']; 
+    let consonante = ['b','c','d','f','g','h','j','k','l','m','n','ñ','p','q','r','s','v','w','x','y','z'];
+
+    for (let i of string) {
+        if (vocal.includes(i)) {
+            v1++;
+        } else if (consonante.includes(i)){
+            c1++;
+        }
+    };
+
+    return console.info(`Tu string "${string}" tiene ${v1} vocales y ${c1} consonantes.`)
+};
+
+
+countVandC([]);
+countVandC();
+countVandC("");
+countVandC("palabra.");
+
 
 
 
@@ -226,27 +259,6 @@ palindrome("otto");
 
 
 
-//Función que devuelve true si un número es capicúa y false si no.
-const capicua = (a = "") =>  {
-    if (!a) return console.warn('Valor vacio, ingrese un número.');
-    if (typeof a !== "number") return console.error("Debe ingresar un número.")
-
-    let toString = a.toString()
-    let reves = toString.split("").reverse().join("");
-
-    return (toString === reves) 
-    ? console.info(true)
-    : console.info(false);
-};
-
-    capicua();
-    capicua("44")
-    capicua(123);
-    capicua(404);
-
-
-
-    
 //Función que elimina cierto patrón de caractéres en un texto.
 const deleteCharacter = (texto = "", string = "") => (!texto)
 ? console.warn('Valor invalido, debe ingresar un texto.') 
@@ -257,21 +269,6 @@ const deleteCharacter = (texto = "", string = "") => (!texto)
 
 deleteCharacter();
 deleteCharacter("lorem imsum dolor", "o");
-
-
-
-
-//Función que devuelve un número entre los parámetros dados.
-const getNumbers = (x = "", y = "") => (!x)
-? console.warn('Valor invalido, debe ingresar un número.')
-: (!y)
-    ? console.warn('Valor invalido, debe ingresar dos números.') 
-    : console.info(Math.round(Math.random() * (y - x) + x));
- 
-
-    getNumbers();
-    getNumbers(1);
-    getNumbers(5, 13);
 
 
 
@@ -299,6 +296,29 @@ check();
 check('pal-','palabra');
 check('pa-a', 'pato');
 check('p-l--r-', 'palabra');
+
+
+
+
+
+//Función que 
+
+
+
+
+
+//Función que devuelve un número entre los parámetros dados.
+const getNumbers = (x = "", y = "") => (!x)
+? console.warn('Valor invalido, debe ingresar un número.')
+: (!y)
+    ? console.warn('Valor invalido, debe ingresar dos números.') 
+    : console.info(Math.round(Math.random() * (y - x) + x));
+ 
+
+    getNumbers();
+    getNumbers(1);
+    getNumbers(5, 13);
+
 
 
 
@@ -338,6 +358,27 @@ factorial(8);
 
 
 
+//Función que devuelve true si un número es capicúa y false si no.
+const capicua = (a = "") =>  {
+    if (!a) return console.warn('Valor vacio, ingrese un número.');
+    if (typeof a !== "number") return console.error("Debe ingresar un número.")
+
+    let toString = a.toString()
+    let reves = toString.split("").reverse().join("");
+
+    return (toString === reves) 
+    ? console.info(true)
+    : console.info(false);
+};
+
+    capicua();
+    capicua("44")
+    capicua(123);
+    capicua(404);
+
+
+
+    
 //Función que te devuelve un boolean si un número es primo o no.
 const primeNumber = (number = undefined) => {
     if (number === undefined) 
@@ -502,7 +543,7 @@ const getDate = (date = undefined) => {
     if (!(date instanceof Date)) return console.error('No ingresaste una fecha vadida.')
 
     let operation = new Date().getTime() - date.getTime(),
-        yearsToSec = 1000 * 60 * 60 * 24 * 365
+        yearsToSec = 1000 */*quitamos para dar seg*/ 60 * /*quitamos para dar hrs*/60 */*quitamos para dar días*/ 24 * /*quitamos para dar semanas*/ 365 //*10 para decada, * 5 para lustros, *100 para siglos
         total = Math.floor(operation/yearsToSec);
 
     return (Math.sign(operation) === -1) 
