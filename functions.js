@@ -199,6 +199,9 @@ valueComparate();
 valueComparate("");
 valueComparate("Nombre",19);
 valueComparate("Nombre, Edad", /^[A-Za-zÑñÁáÉéíÍóÓÚú\s]+$/g);
+valueComparate("danlee97.06@gmail.com", new RegExp("/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/" , "i"));
+
+
 
 
 
@@ -489,6 +492,33 @@ primeNumber(12);
 
 
 
+/*Función que itera sobre un array de números y devuelve ese array elevado al cuadrado.*/
+
+const arrayNum = (array = undefined) => {
+
+    if (!(array instanceof Array)) return console.warn('El valor ingresado no es un array.')
+
+    if (array === undefined) return console.error('Valor vacio, ingrese uno o más números.')
+
+    for (let i of array) {
+        if (typeof i !== "number") return console.error(`El valor "${i}" no es un número.`)
+    }
+
+
+    const newArr = array.map(el => el * el)
+
+    return console.log(newArr)
+};
+
+
+arrayNum();
+arrayNum([2, 3,'4']);
+arrayNum([2, 3, 4]);
+
+
+
+
+
 //Función que determina si un número es par o impar.
 const parImpar = (number = undefined) => {
     if (number === undefined) 
@@ -633,3 +663,6 @@ getDate("");
 getDate(new Date());
 getDate(new Date(1997,7,6));
 getDate(new Date(2050,7,6));
+
+
+
