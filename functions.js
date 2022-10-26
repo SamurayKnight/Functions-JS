@@ -143,12 +143,36 @@ const valid = (string = "") => {
         :console.warn(`El string ${string} NO es un string valido.`)
 };
 
+
 valid();
 valid(3);
 valid("Nombre Apellido");
 valid("Nombre, Edad");
 
 
+
+
+
+/*Función que valida que un correo sea valido con letras , números @ - .com */
+const validEmail = (email = "") => {
+    if (!email) return console.error('Valor invalido, ingrese un string')
+
+    if (typeof email!== "string") return console.warn('Debe ingresar un valor en el string')
+
+
+    //Exp Reg que checa emails
+   let expReg =  /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email); 
+
+   return (expReg) 
+        ? console.info(`El string ${email} es un e-mail valido.`)
+        :console.warn(`El string ${email} NO es un e-mail valido.`)
+}
+
+
+validEmail();
+validEmail(3);
+validEmail("danlee97.06@gmail.com");
+validEmail("Nombre, Edad");
 
 
 
