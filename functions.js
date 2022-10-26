@@ -103,11 +103,8 @@ const countVandC = (string = "") => {
     let consonante = ['b','c','d','f','g','h','j','k','l','m','n','ñ','p','q','r','s','v','w','x','y','z'];
 
     for (let i of string) {
-        if (vocal.includes(i)) {
-            v1++;
-        } else if (consonante.includes(i)){
-            c1++;
-        }
+        if (vocal.includes(i)) v1++;
+        else if (consonante.includes(i)) c1++;
     };
 
     return console.info(`Tu string "${string}" tiene ${v1} vocales y ${c1} consonantes.`)
@@ -118,6 +115,41 @@ countVandC([]);
 countVandC();
 countVandC("");
 countVandC("palabra.");
+
+
+
+
+//Función que valida si un texto es verdadero o no dependiendo de los valores uqe especifiquemos.
+const valid = (string = "") => {
+    if (!string) return console.error('Valor invalido, ingrese un string')
+
+    if (typeof string !== "string") return console.warn('Debe ingresar un valor en el string')
+    
+
+
+    /*Aquí creamos una expresión regular que valida todos los caracteres que le demos. En ella contiene caracteres especiales como:
+        ^ : no puede haber nada antes de.
+        [] : actuán como agrupadores.
+        + : evalúa por cada caracter que tiene el string.
+        \s : simboliza espacio en blanco.
+        $ : npo puede haber nada después.
+        g : comodín de las expr reg.
+        test() : evalúa si se cumple o no.
+        */
+    let expReg = /^[A-Za-zÑñÁáÉéíÍóÓÚú\s]+$/g.test(string)
+
+    return (expReg) 
+        ? console.info(`El string ${string} es un string valido.`)
+        :console.warn(`El string ${string} NO es un string valido.`)
+};
+
+valid();
+valid(3);
+valid("Nombre Apellido");
+valid("Nombre, Edad");
+
+
+
 
 
 
@@ -296,12 +328,6 @@ check();
 check('pal-','palabra');
 check('pa-a', 'pato');
 check('p-l--r-', 'palabra');
-
-
-
-
-
-//Función que 
 
 
 
