@@ -516,6 +516,31 @@ arrayNum([2, 3,'4']);
 arrayNum([2, 3, 4]);
 
 
+/*Función que analiza un array de números y devuelve dos números, el más alto y el más bajo. */
+const arrayMinAndMax = (array = undefined) => {
+
+    if (!(array instanceof Array)) return console.warn('El valor ingresado no es un array.')
+
+    if (array === undefined) return console.error('Valor vacio, ingrese uno o más números.')
+
+    for (let i of array) {
+        if (typeof i !== "number") return console.error(`El valor "${i}" no es un número.`)
+    }
+
+    let min = Math.min(...array);
+    let max = Math.max(...array);
+    return console.log(`Array original:${array}\n Número mayor:${max}.\n Número menor:${min}.`)
+};
+
+
+arrayMinAndMax();
+arrayMinAndMax([2,3,'4']);
+arrayMinAndMax([2,3,4]);
+
+
+
+
+
 
 
 
