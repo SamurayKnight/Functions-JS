@@ -540,6 +540,30 @@ arrayMinAndMax([2,3,4]);
 
 
 
+/*Función que recibe un Array de números y duvuelve un objeto con dos Arrays, uno con los números pares y el otro con los impares. */
+const arrayParAndImparArr = (array = undefined) =>{
+   if (!(array instanceof Array)) return console.warn('El valor ingresado no es un array.')
+
+    if (array === undefined) return console.error('Valor vacio, ingrese uno o más números.')
+
+    if (array.length === 0) return console.error("void Array.")
+
+    for (let a of array) 
+        if (typeof a !== "number") return console.error( `El valor "${a}" no es un número.`)
+    
+
+    //.filter recibe un arreglo y filtra x elemnto dependiendo de la condición que establezcamos.
+    return console.info({
+        pares:array.filter(num => num % 2 === 0),
+        impares:array.filter(num => num % 2 === 1)
+    })
+};
+
+
+arrayParAndImparArr();
+arrayParAndImparArr([]);
+arrayParAndImparArr([2,3,'4']);
+arrayParAndImparArr([1,2,3,4,5,6,7,8,9]);
 
 
 
@@ -554,9 +578,9 @@ const parImpar = (number = undefined) => {
 
     let numero = 2;
     if ((number % numero) === 0) {
-        return console.info(`Tu número ${number} es primo.`)
+        return console.info(`Tu número ${number} es par.`)
     } else {
-        return console.info(`Tu número ${number} no es primo.`)
+        return console.info(`Tu número ${number} es impar.`)
     }
 };
 
