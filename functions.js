@@ -562,8 +562,8 @@ const arrayParAndImparArr = (array = undefined) =>{
 
 arrayParAndImparArr();
 arrayParAndImparArr([]);
-arrayParAndImparArr([2,3,'4']);
-arrayParAndImparArr([1,2,3,4,5,6,7,8,9]);
+arrayParAndImparArr([2,3,'4'] );
+arrayParAndImparArr( [1,2,3,4,5,6,7,8,9]);
 
 
 
@@ -587,6 +587,38 @@ const parImpar = (number = undefined) => {
 
 parImpar(1);
 parImpar(123138);
+
+
+/*Función que tome un Array como parámetro y devuelva un objeto con dos Arrays uno de manera ascendente y otro de manera descendente. (Solo aplica en números menores a 10.)*/
+const arrayAandD = (array = undefined) => {
+    if (!(array instanceof Array)) return console.warn('El valor ingresado no es un array.')
+
+    if (array === undefined) return console.error('Valor vacio, ingrese uno o más números.')
+
+    if (array.length === 0) return console.error("void Array.")
+
+    for (let i of array) 
+        if (typeof i !== "number") return console.error( `El valor "${i}" no es un número.`)
+    
+     if (array) {
+       console.info({
+        Original: array,
+        Ascendente:array.map(el => el).sort((a,b)=>a+b),
+        Descendente:array.map(el => el).sort().reverse()
+    });
+     }
+ 
+}
+
+
+arrayAandD();
+arrayAandD([]);
+arrayAandD([2,3,'4']);
+arrayAandD([1,9,5,4,7,3,8]);
+
+
+/**/
+
 
 
 
