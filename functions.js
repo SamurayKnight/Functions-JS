@@ -617,8 +617,25 @@ arrayAandD([2,3,'4']);
 arrayAandD([1,9,5,4,7,3,8]);
 
 
-/**/
+/*Función que elimina elementos duplicados en un array dado.*/
+const deleteDuplicateElements = (array = undefined) => {
 
+
+    if (array === undefined) return console.error('Valor vacio, ingrese uno o más números.')
+
+    if (array.length === 0) return console.error("void Array.")
+
+
+    return console.info({
+    original:array,
+    Filtrado:array.filter((value,index,self)=>self.indexOf(value)===index)
+     })
+}
+
+
+deleteDuplicateElements()
+deleteDuplicateElements([])
+deleteDuplicateElements(["x","y",2,3,"a","x",2])
 
 
 
