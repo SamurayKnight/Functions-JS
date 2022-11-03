@@ -608,13 +608,48 @@ const arrayAandD = (array = undefined) => {
     });
      }
  
-}
-
+};
 
 arrayAandD();
 arrayAandD([]);
 arrayAandD([2,3,'4']);
 arrayAandD([1,9,5,4,7,3,8]);
+
+
+
+
+/*Función que saca el promedio de un Array. */
+const promedio = (array = undefined) => {
+
+     if (!(array instanceof Array)) return console.warn('El valor ingresado no es un array.')
+
+    if (array === undefined) return console.error('Valor vacio, ingrese uno o más números.')
+
+    if (array.length === 0) return console.error("void Array.")
+
+    for (let i of array) 
+        if (typeof i !== "number") return console.error( `El valor "${i}" no es un número.`)
+ 
+    
+    //Se puede resolver de otra forma pero esta aprovecha los métodos de ES6.
+    return console.info( array.reduce((total, num, i, array)=>{
+        total += num;
+        if(i === array.length -1){
+            return `El promedio es ${total / array.length}`
+        } else { 
+            return total;
+        }
+    }))
+    
+}
+
+
+promedio();
+promedio([]);
+promedio([2,3,4,"5"]);
+promedio([2,3,4,5,6,7,8,9,10]);
+
+
 
 
 /*Función que elimina elementos duplicados en un array dado.*/
@@ -764,3 +799,190 @@ getDate(new Date(2050,7,6));
 
 
 
+
+//************EJERCICIO**************
+/*
+CLASE QUE SE INSTANCIA CON LOS DATOS QUE LE DEMOS, EL PUNTO DE ESTE EJERCICIO ES APRENDER A HACER CLASES CON FUNCIONES E INSTANCIARLA(que se usan al mismo tiempo de recibir los datos).
+
+EL EJEMPLO SERÁ CON UNA CLASE LLAMADA PELÍCULA QUE SE INSTANCIA CON LOS DATOS: ID en IMDB, titulo, director, año de estreno, país/es  , géneros y calificación.
+
+*/ 
+
+class película {
+    constructor({id, titulo, director, estreno, pais, generos, calificacion})
+    {
+        this.id = id;
+        this.titulo = titulo; 
+        this.director = director;
+        this.estreno = estreno;
+        this.pais = pais;
+        this.generos = generos;
+        this.calificacion = calificacion;
+
+        this.validMDB(id);
+        this.validTitle(titulo);
+        this.validDirector(director);
+        this.validPremiere(estreno);
+        this.validCountry(pais);
+        this.validGender(generos);
+        this.validQualification(calificacion);
+
+    }
+/*
+    Método estatico de ejemplo que sirve para asignar un valor antes de insatnciar una clase, útil para ciertos casos
+*/
+    static get getListGenders () {
+        return ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+    }
+
+    static generosAceptados(){
+        return console.info(`Los generos aceptados son: ${película.getListGenders.join(",")}`)
+    }
+
+
+    //Funciones para el id y titulo de la película.
+
+    validString(propiedad, valor){
+        if (!valor) return console.warn(`${propiedad} ${valor} vacio.`);
+
+        if (typeof valor !== "string") return console.error(`${propiedad} ${valor} ingresado no es un string.`);
+
+        return true;
+    }
+
+
+    validStringLength(propiedad, valor, longitud){
+        if (valor.length > longitud) return console.error(`${propiedad} ${valor} excede el número de caracteres permitidos ${longitud}.`);
+
+        return true;
+    }
+
+
+    validArray(propiedad, valor) {
+        if (!valor) return console.warn(`${propiedad} "${valor}" esta vacio.`) 
+
+        if (!(valor instanceof Array)) return console.error(`${propiedad} "${valor}" No es un Array.`)
+
+        if (valor.length === 0) return console.error(`${propiedad} "${valor}" no tiene datos.`)
+
+        for (let string of valor) {
+            if (typeof string !== "string") return console.error(`El valor "${string}" NO es un String.`)
+        }
+
+        return true;
+    }
+
+
+    validNumber(propiedad, valor) {
+        if(!valor) return console.warn(`${propiedad} "${valor}" vacio.`)
+    }
+
+
+
+    validMDB (id) {
+
+        if (this.validString("IMDB id", id)) {
+
+            //Expresión regular. El {} declara en número de caracteres.
+            if (!(/^([a-z]{2}([0-9]{7}))$/.test(id))) {
+
+                console.error(`IMDB id ${id} no es valido, debe tener 9 caracteres, los 2 primeros letras minúsculas y 7 números.`);
+            }
+
+        }
+
+    }
+
+
+    validTitle (titulo) {
+
+        if (this.validString("Title", titulo)) {
+            if (this.validStringLength("Title", titulo, 100)); {
+            }
+        }
+
+    }
+
+
+    validDirector (director) {
+
+        if (this.validString("Director", director)) {
+            if (this.validStringLength("Diretor", director, 50)); {
+            }
+        }
+
+    }
+
+
+     validPremiere (estreno) {
+
+        if (this.validNumber("Año de estreno", estreno)) {
+
+            //Expresión regular. El {} declara en número de caracteres.
+            if (!(/^(([0-9]{4}))$/.test(estreno))) {
+
+                console.error(`Año de estreno "${estreno}" no es valido, debe tener 4 dígitos.`);
+            }
+
+        }
+
+    }
+
+
+    validCountry(pais) {
+        this.validArray("País", pais);
+    }
+
+
+    validGender(generos) {
+        if (this.validArray("Generos", generos)){
+
+            //Este for of es muy útil dentro de varios códigos ua que se puede extrapolar.
+            for (let gender of generos) {
+                console.log(gender, película.getListGenders.includes(gender))
+
+                if (!película.getListGenders.includes(gender)) {
+                    return console.error(`Generos incorrectos ${gender.join(", ")}`);
+                    película.generosAceptados();
+                }
+            }
+        }
+    }
+
+
+    validQualification (calificacion) {
+
+        if (this.validNumber("Calificación", calificacion)) {
+            return (calificacion < 0 || calificacion > 10)
+            ? console.error(`La calificación tiene que estare dentro de un rango dentro de uno a diez.`)
+            : this.calificacion = calificacion.toFixed(1);
+        }
+
+    }
+
+
+    dataSheet() {
+        console.info(`Ficha Técnica:\nTitulo:"${this.titulo}"\nDirector:"${this.director}"\nAño:"${this.estreno} \nPaís:"${this.pais.join("-")}"\nGéneros:"${this.generos.join(", ")}"\nCalificación: "${this.calificacion}"\nIMBD ID:"${this.id}"`)
+    }
+
+
+
+}
+
+
+
+
+//Nuevo Objeto que recibe la función "Peliculas"
+const pelicula1 = new película({
+    id: "tt1234567",
+    tituto: "Titulo X",
+    director: "Director de la Película",
+    estreno:2020,
+    pais:["EUA","RUSIA"],
+    generos:["Comedy", "Sport"],
+    calificacion: 8.111
+})
+
+pelicula1.dataSheet();
+
+//Ahora si yo le paso películas de la página IMDB con los parámetros que pido puedo imprimir en consola los datos de la ficha y si no existe esa película retorna falso especificando en donde falla, que es lo importante de las funciones, ver que falla y porqué.
