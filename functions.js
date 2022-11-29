@@ -17,7 +17,7 @@ const lastLetter = (string = "") => {
 
 
 lastLetter();
-lastLetter("worh");
+lastLetter("worth");
 
 
 
@@ -44,7 +44,8 @@ const mapString = (string = "") => {
 
     for (let i = 0; i < string.length; i++) {
         let consecutive = string[i];
-
+        // Esto sería equivalente a un for...of
+        // console.log(consecutive)
         if (obj[consecutive]) {
             obj[consecutive].push(i)
         } else {
@@ -986,3 +987,5 @@ const pelicula1 = new película({
 pelicula1.dataSheet();
 
 //Ahora si yo le paso películas de la página IMDB con los parámetros que pido puedo imprimir en consola los datos de la ficha y si no existe esa película retorna falso especificando en donde falla, que es lo importante de las funciones, ver que falla y porqué.
+
+
