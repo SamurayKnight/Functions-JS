@@ -2,8 +2,8 @@
 
 /* ***********  VARIABLES *********** */
 :root{
-    --color-menu:rgba(251, 37, 118, 0.85) ;
-    --color-header: #0C1E7F;
+    --color-menu:rgba(0, 178, 181, 0.85) ;
+    --color-header: #009EFF;
     --container-width: 1200px;
     --color-main: rgb(222, 165, 112) ;
 }
@@ -33,9 +33,10 @@ img{
     background-color: var(--color-header);
     position: sticky;
     top: 0;
-    padding: 1rem;
+    padding: .5rem;
     display: hidden;
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .panel{
@@ -46,12 +47,14 @@ img{
     right: 0;
     left: 0;
     bottom: 0;
-    transition: transform .3s ease;
     transform: translate(0,-100%);
+    opacity: 0;
+    transition: opacity .5s ease;
 }
 
 .panel.is-active {
     transform: translate(0,0);
+    opacity: 1;
 }
 
 .btn{
@@ -74,16 +77,18 @@ img{
     width: inherit;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     background-color: var(--color-menu);
 }
 
 .menu a{
-    padding: 1rem;
+    height: 19%;
     width: inherit;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 2rem;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -92,16 +97,15 @@ img{
 .menu a:hover{
     font-weight: bold;
     color: var(--color-menu);
-    background-color: #4c2d38;
+    background-color: #393E46;
 }
 
 
 .section{
-    padding: 1rem;
+    padding: .3rem;
     width: 100%;
-    max-width: var(--container-width);
     min-height: 100vh;
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
 }
 
