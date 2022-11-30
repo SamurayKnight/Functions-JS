@@ -1,0 +1,40 @@
+/* ***********  *********** */
+
+/* ***********  VARIABLES *********** */
+:root{
+    --container-width: 1200px;
+}
+
+/* *********** RESET CSS *********** */
+
+
+
+*,
+*:before,
+*::after{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+.section{
+    margin: 1%;
+    width: 100%;
+    height: 100vh;
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+
