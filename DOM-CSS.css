@@ -2,7 +2,10 @@
 
 /* ***********  VARIABLES *********** */
 :root{
+    --color-menu:rgba(251, 37, 118, 0.85) ;
+    --color-header: #0C1E7F;
     --container-width: 1200px;
+    --color-main: rgb(222, 165, 112) ;
 }
 
 /* *********** RESET CSS *********** */
@@ -12,7 +15,7 @@
 *,
 *:before,
 *::after{
-    box-sizing: border-box;
+    box-sizing: inherit;
     scroll-behavior: smooth;
 }
 
@@ -26,12 +29,78 @@ img{
     height: auto;
 }
 
+.header{
+    background-color: var(--color-header);
+    position: sticky;
+    top: 0;
+    padding: 1rem;
+    display: hidden;
+    text-align: center;
+}
+
+.panel{
+    position: fixed;
+    z-index: 998;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transition: transform .3s ease;
+    transform: translate(0,-100%);
+}
+
+.panel.is-active {
+    transform: translate(0,0);
+}
+
+.btn{
+    position: fixed;
+    z-index: 999;
+    bottom: 1vh;
+    right: 1vw;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-menu);
+}
+
+.menu{
+    height: 50%;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-menu);
+}
+
+.menu a{
+    padding: 1rem;
+    width: inherit;
+    display: block;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.menu a:hover{
+    font-weight: bold;
+    color: var(--color-menu);
+    background-color: #4c2d38;
+}
 
 
 .section{
-    margin: 1%;
+    padding: 1rem;
     width: 100%;
-    height: 100vh;
+    max-width: var(--container-width);
+    min-height: 100vh;
     font-size: 2rem;
     text-align: center;
 }

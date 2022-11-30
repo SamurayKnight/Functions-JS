@@ -13,19 +13,29 @@
 </head>
 
 <body>
-    <button class="hamburger hamburger--elastic" type="button">
+
+    <header class="header">
+        <h1>Pághina Web </h1>
+    </header>
+
+    <button class="btn hamburger hamburger--elastic" type="button">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
     </button>
 
-    <nav class="menu">
-        <a href="section1"></a>
-        <a href="section2"></a>
-        <a href="section3"></a>
-        <a href="section4"></a>
-        <a href="section5"></a>
-    </nav>
+    <aside class="panel">
+        <nav class="menu">
+            <a href="#section1">Sección 1</a>
+            <a href="#section2">Sección 2</a>
+            <a href="#section3">Sección 3</a>
+            <a href="#section4">Sección 4</a>
+            <a href="#section5">Sección 5</a>
+        </nav>
+
+    </aside>
+
+
 
     <main>
         <div id="section1" class="section">
@@ -45,7 +55,8 @@
         </div>
     </main>
 
-    <script src="./DOM-functions.js"></script>
+
+    <script type="module" src="./DOM.js"></script>
 </body>
 
 </html>
