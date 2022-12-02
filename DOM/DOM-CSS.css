@@ -34,7 +34,6 @@ img{
     position: sticky;
     top: 0;
     padding: .5rem;
-    display: hidden;
     text-align: center;
     font-size: 1.5rem;
 }
@@ -47,14 +46,14 @@ img{
     right: 0;
     left: 0;
     bottom: 0;
-    transform: translate(0,-100%);
     opacity: 0;
-    transition: opacity .5s ease;
+    visibility: hidden;
+    transition: opacity .4s ease;
 }
 
 .panel.is-active {
-    transform: translate(0,0);
     opacity: 1;
+    visibility: visible;
 }
 
 .btn{
@@ -104,10 +103,21 @@ img{
 .section{
     padding: .3rem;
     width: 100%;
-    min-height: 100vh;
+    height: 95vh;
     font-size: 1.8rem;
     text-align: center;
 }
 
 
 
+/* RELOJ */
+.alarma{
+    height: 4%;
+    display: flex;
+    justify-content: center;
+}
+
+.alarma-button{
+    font-size: 2rem;
+    margin: 2px;
+}
