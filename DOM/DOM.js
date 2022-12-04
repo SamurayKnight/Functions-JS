@@ -2,6 +2,7 @@ import  hamburgerMenu from './modules/button.js';
 import  time from './modules/reloj.js';
 import  alarma from './modules/alarma.js';
 import atajos from './modules/atajos.js';
+import moveBall from './modules/movimiento.js';
 
 const d = document;
 
@@ -14,6 +15,7 @@ d.addEventListener("DOMContentLoaded", e => {
 
 d.addEventListener("keydown", (e) => {
     atajos(e);
+    moveBall(e, ".ball", ".stage");
 });
 
 

@@ -121,3 +121,23 @@ img{
     font-size: 2rem;
     margin: 2px;
 }
+
+
+/*SECCIÓN 2*/
+
+.stage{
+    height: 50vh;
+    margin: auto;
+    width: 95%;
+    background-color: #393E46;
+    display: flex;
+    border: solid 8px var(--color-header);
+}
+
+.ball{
+    margin: auto;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: var(--color-header);
+}
