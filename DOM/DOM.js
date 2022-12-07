@@ -12,7 +12,7 @@ d.addEventListener("DOMContentLoaded", e => {
     hamburgerMenu(".btn" , ".panel",".menu a");
     time(".reloj",".alarma-activa", ".alarma-desactiva");
     alarma("assets/alarma.mp3", ".alarma-sound-a", ".alarma-sound-b" );
-    date(".date");
+    date(".date", "Jan 01, 2023");
 });
 
 d.addEventListener("keydown", (e) => {
