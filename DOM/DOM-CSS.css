@@ -8,6 +8,8 @@
     --color-main: rgb(222, 165, 112) ;
 }
 
+
+
 /* *********** RESET CSS *********** */
 
 
@@ -170,4 +172,35 @@ img{
 .hidden{
     visibility: hidden;
     opacity: 0;
+}
+
+
+
+
+.divMode{
+    position: fixed;
+    z-index: 999;
+    bottom: 1vh;
+    left: 1vw;
+    width: 3.5rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background-color: var(--color-menu);
+    color: black;
+    cursor: pointer;
+    border: 0;
+    outline: 0; 
+    transition: all 0.4s ease-out;
+}
+
+.divMode:hover{
+    background-color: black;
+    color: var(--color-menu);
+}
+
+.dark-mode{
+    background-color: black;
+    color: var(--color-header);
 }

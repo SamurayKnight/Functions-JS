@@ -5,6 +5,7 @@ import atajos from './modules/atajos.js';
 import moveBall from './modules/movimiento.js';
 import date from './modules/fecha.js';
 import  scrollTopBotton from './modules/boton-scroll-top.js';
+import darkLightMode from './modules/dark-ligth-mode.js'
 
 const d = document;
 
@@ -13,7 +14,8 @@ d.addEventListener("DOMContentLoaded", e => {
     time(".reloj",".alarma-activa", ".alarma-desactiva");
     alarma("assets/alarma.mp3", ".alarma-sound-a", ".alarma-sound-b" );
     date(".date", "Jan 01, 2023");
-    scrollTopBotton(".scroll-top-btn")
+    scrollTopBotton(".scroll-top-btn");
+    darkLightMode(".divMode", "dark-mode");
 });
 
 d.addEventListener("keydown", (e) => {
