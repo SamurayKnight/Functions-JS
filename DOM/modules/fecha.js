@@ -12,7 +12,12 @@ export default function date(div, dateUser) {
                 minutes = Math.floor((time %  (1000 * 60 * 60))/(1000 * 60)),
                 seconds = Math.floor((time %  (1000 * 60))/(1000));
 
-                div2.innerHTML =  `<h3>Faltan ${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos</h3>`;
+                div2.innerHTML =  `<h3>Faltan ${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos para que acabe el año.</h3>`;
+
+            if (time < 0) {
+                clearInterval(tiempo);
+                div2.innerHTML = `<h3>Acabo el año.</h3>`
+            }
 
         }, 1000);
     };
