@@ -15,7 +15,6 @@ d.addEventListener("DOMContentLoaded", e => {
     alarma("assets/alarma.mp3", ".alarma-sound-a", ".alarma-sound-b" );
     date(".date", "Jan 01, 2023");
     scrollTopBotton(".scroll-top-btn");
-    darkLightMode(".divMode", "dark-mode");
 });
 
 d.addEventListener("keydown", (e) => {
@@ -23,5 +22,6 @@ d.addEventListener("keydown", (e) => {
     moveBall(e, ".ball", ".stage");
 });
 
+darkLightMode(".divMode", "dark-mode");
 
 
