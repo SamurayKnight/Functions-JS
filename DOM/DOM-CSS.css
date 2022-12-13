@@ -75,8 +75,9 @@ img{
 
 
 .menu{
-    height: 50%;
+    height: 100%;
     width: inherit;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -220,4 +221,29 @@ img{
 
 .offline {
     background: #b71c1c;
+}
+
+/*CARDS*/
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+    background-color: #393E46;
+    color: var(--color-menu);
+    transition: all  .3s ease-out;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card figcaption{
+    padding: 1rem;
+}
+
+.filtrer{
+    display: none;
 }
