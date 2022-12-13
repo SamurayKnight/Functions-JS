@@ -4,7 +4,7 @@ export default function inputs(form) {
     const f = d.getElementById(form);
     let tester;
 
-    d.addEventListener("submit", (e) => {
+    d.addEventListener("submit", e => {
         if (e.target === f) {
             e.preventDefault();
             tester = window.open(
@@ -14,6 +14,6 @@ export default function inputs(form) {
         }});
 
     d.addEventListener("click", e => {
-        if (e.target === form.cerrar) tester.close();
+        if (e.target === f.cerrar) tester.close();
     });
 };
