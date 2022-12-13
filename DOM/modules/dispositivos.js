@@ -61,8 +61,8 @@ export default function deviceInfo(id) {
         $id.innerHTML += `<p>Este contenido solo se despliega en Chrome</p>` ;
     };
 
-    //Si queremos redireccionar dependiendo del dispositivo usamos:
-    if (isMobile.andoid()) {
-        window.location.href = "https://google.com"
-    }
+    // //Si queremos redireccionar dependiendo del dispositivo usamos:
+    // if (isMobile.andoid()) {
+    //     window.location.href = "https://google.com"
+    // }
 }

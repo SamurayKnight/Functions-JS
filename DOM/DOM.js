@@ -9,6 +9,7 @@ import darkLightMode from './modules/dark-ligth-mode.js'
 import responsive from './modules/responsive.js';
 import inputs from './modules/input.js';
 import deviceInfo from './modules/dispositivos.js';
+import onLine from './modules/online.js';
 
 const d = document;
 
@@ -32,5 +33,5 @@ d.addEventListener("keydown", (e) => {
 });
 
 darkLightMode(".divMode", "dark-mode");
-
+onLine();
 
