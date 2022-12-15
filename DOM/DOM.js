@@ -12,6 +12,7 @@ import deviceInfo from './modules/dispositivos.js';
 import onLine from './modules/online.js';
 import geoLocalitation from './modules/geoLocalización.js';
 import search from './modules/filtro.js';
+import sorteo from './modules/sorteo.js';
 
 const d = document;
 
@@ -28,7 +29,8 @@ d.addEventListener("DOMContentLoaded", e => {
     inputs("responsive");
     deviceInfo(".user-agent");
     geoLocalitation("geolocation");
-    search(".card-filter", ".card")
+    search(".card-filter", ".card");
+    sorteo("#play",".player")
 });
 
 d.addEventListener("keydown", (e) => {
