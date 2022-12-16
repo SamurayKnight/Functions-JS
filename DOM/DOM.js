@@ -13,6 +13,7 @@ import onLine from './modules/online.js';
 import geoLocalitation from './modules/geoLocalización.js';
 import search from './modules/filtro.js';
 import sorteo from './modules/sorteo.js';
+import slider from './modules/slider.js';
 
 const d = document;
 
@@ -30,7 +31,8 @@ d.addEventListener("DOMContentLoaded", e => {
     deviceInfo(".user-agent");
     geoLocalitation("geolocation");
     search(".card-filter", ".card");
-    sorteo("#play",".player")
+    sorteo("#play",".player");
+    slider();
 });
 
 d.addEventListener("keydown", (e) => {
